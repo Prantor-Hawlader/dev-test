@@ -8,7 +8,7 @@ const RecursivePartition = () => {
   const [partitions, setPartitions] = useState([
     {
       id: "initial-partition",
-      color: "#3498db",
+      color: "#7F00FF",
       direction: null,
       children: [],
     },
@@ -17,18 +17,18 @@ const RecursivePartition = () => {
   const splitPartition = (id, direction) => {
     const newPartitions = JSON.parse(JSON.stringify(partitions));
 
-    const findPartition = (partitions, id) => {
+    const getPartition = (partitions, id) => {
       for (let partition of partitions) {
         if (partition.id === id) return partition;
         if (partition.children.length > 0) {
-          const found = findPartition(partition.children, id);
+          const found = getPartition(partition.children, id);
           if (found) return found;
         }
       }
       return null;
     };
 
-    const partition = findPartition(newPartitions, id);
+    const partition = getPartition(newPartitions, id);
     if (partition) {
       partition.direction = direction;
       partition.children = [
