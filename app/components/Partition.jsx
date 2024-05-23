@@ -105,7 +105,7 @@ const RecursivePartition = () => {
 
   return (
     <div className="flex justify-center items-center h-screen ">
-      <div className="relative w-4/5 h-4/5 border-4 border-green-500 border- flex">
+      <div className="relative w-4/5 h-4/5 resize overflow-auto border-4 border-green-500 border- flex">
         {partitions.map((partition) => renderPartition(partition))}
       </div>
     </div>
